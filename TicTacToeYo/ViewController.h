@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TBoard.h"
 
 @interface ViewController : UIViewController
+
+- (IBAction)resetGame:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextView *gameDescription;
+@property TBoard *gameBoard;
 
 @end

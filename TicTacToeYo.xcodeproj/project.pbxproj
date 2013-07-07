@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C3AB38B1787E02200E8FDF4 /* TGameArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AB38A1787E02200E8FDF4 /* TGameArray.m */; };
+		7C43C471178A00DE00BFA802 /* img.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7C43C470178A00DE00BFA802 /* img.bundle */; };
 		7CB4975E1787AFE000E417EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB4975D1787AFE000E417EB /* UIKit.framework */; };
 		7CB497601787AFE000E417EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB4975F1787AFE000E417EB /* Foundation.framework */; };
 		7CB497621787AFE000E417EB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB497611787AFE000E417EB /* CoreGraphics.framework */; };
@@ -24,6 +26,8 @@
 		7CB497871787AFE000E417EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB4975F1787AFE000E417EB /* Foundation.framework */; };
 		7CB4978F1787AFE000E417EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CB4978D1787AFE000E417EB /* InfoPlist.strings */; };
 		7CB497921787AFE000E417EB /* TicTacToeYoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB497911787AFE000E417EB /* TicTacToeYoTests.m */; };
+		7CB4979F1787BA3100E417EB /* TBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB4979E1787BA3100E417EB /* TBoard.m */; };
+		7CB497A21787C6B700E417EB /* TCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB497A11787C6B700E417EB /* TCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C3AB3891787E02200E8FDF4 /* TGameArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGameArray.h; sourceTree = "<group>"; };
+		7C3AB38A1787E02200E8FDF4 /* TGameArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGameArray.m; sourceTree = "<group>"; };
+		7C43C470178A00DE00BFA802 /* img.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = img.bundle; sourceTree = "<group>"; };
 		7CB4975A1787AFE000E417EB /* TicTacToeYo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToeYo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB4975D1787AFE000E417EB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7CB4975F1787AFE000E417EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,6 +67,10 @@
 		7CB4978E1787AFE000E417EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7CB497901787AFE000E417EB /* TicTacToeYoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicTacToeYoTests.h; sourceTree = "<group>"; };
 		7CB497911787AFE000E417EB /* TicTacToeYoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicTacToeYoTests.m; sourceTree = "<group>"; };
+		7CB4979D1787BA3100E417EB /* TBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBoard.h; sourceTree = "<group>"; };
+		7CB4979E1787BA3100E417EB /* TBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBoard.m; sourceTree = "<group>"; };
+		7CB497A01787C6B700E417EB /* TCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCell.h; sourceTree = "<group>"; };
+		7CB497A11787C6B700E417EB /* TCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +130,7 @@
 		7CB497631787AFE000E417EB /* TicTacToeYo */ = {
 			isa = PBXGroup;
 			children = (
+				7C43C470178A00DE00BFA802 /* img.bundle */,
 				7CB4976C1787AFE000E417EB /* AppDelegate.h */,
 				7CB4976D1787AFE000E417EB /* AppDelegate.m */,
 				7CB497751787AFE000E417EB /* MainStoryboard_iPhone.storyboard */,
@@ -126,6 +138,12 @@
 				7CB4977B1787AFE000E417EB /* ViewController.h */,
 				7CB4977C1787AFE000E417EB /* ViewController.m */,
 				7CB497641787AFE000E417EB /* Supporting Files */,
+				7CB4979D1787BA3100E417EB /* TBoard.h */,
+				7CB4979E1787BA3100E417EB /* TBoard.m */,
+				7C3AB3891787E02200E8FDF4 /* TGameArray.h */,
+				7C3AB38A1787E02200E8FDF4 /* TGameArray.m */,
+				7CB497A01787C6B700E417EB /* TCell.h */,
+				7CB497A11787C6B700E417EB /* TCell.m */,
 			);
 			path = TicTacToeYo;
 			sourceTree = "<group>";
@@ -240,6 +258,7 @@
 				7CB497741787AFE000E417EB /* Default-568h@2x.png in Resources */,
 				7CB497771787AFE000E417EB /* MainStoryboard_iPhone.storyboard in Resources */,
 				7CB4977A1787AFE000E417EB /* MainStoryboard_iPad.storyboard in Resources */,
+				7C43C471178A00DE00BFA802 /* img.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +296,9 @@
 				7CB4976A1787AFE000E417EB /* main.m in Sources */,
 				7CB4976E1787AFE000E417EB /* AppDelegate.m in Sources */,
 				7CB4977D1787AFE000E417EB /* ViewController.m in Sources */,
+				7CB4979F1787BA3100E417EB /* TBoard.m in Sources */,
+				7CB497A21787C6B700E417EB /* TCell.m in Sources */,
+				7C3AB38B1787E02200E8FDF4 /* TGameArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +489,7 @@
 				7CB497971787AFE000E417EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7CB497981787AFE000E417EB /* Build configuration list for PBXNativeTarget "TicTacToeYoTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +498,7 @@
 				7CB4979A1787AFE000E417EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
