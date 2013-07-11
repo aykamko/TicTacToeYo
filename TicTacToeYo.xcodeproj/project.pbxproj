@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7C3AB38B1787E02200E8FDF4 /* TGameArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AB38A1787E02200E8FDF4 /* TGameArray.m */; };
-		7C43C471178A00DE00BFA802 /* img.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7C43C470178A00DE00BFA802 /* img.bundle */; };
+		7C225838178DD2D600BC4BDB /* TTouchAndPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C225837178DD2D600BC4BDB /* TTouchAndPanGestureRecognizer.m */; };
+		7C3AB38B1787E02200E8FDF4 /* TGameDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AB38A1787E02200E8FDF4 /* TGameDataModel.m */; };
+		7CADF455178A20AA005D7DAD /* TLineOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CADF454178A20AA005D7DAD /* TLineOverlayView.m */; };
 		7CB4975E1787AFE000E417EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB4975D1787AFE000E417EB /* UIKit.framework */; };
 		7CB497601787AFE000E417EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB4975F1787AFE000E417EB /* Foundation.framework */; };
 		7CB497621787AFE000E417EB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB497611787AFE000E417EB /* CoreGraphics.framework */; };
@@ -20,14 +21,14 @@
 		7CB497741787AFE000E417EB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CB497731787AFE000E417EB /* Default-568h@2x.png */; };
 		7CB497771787AFE000E417EB /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB497751787AFE000E417EB /* MainStoryboard_iPhone.storyboard */; };
 		7CB4977A1787AFE000E417EB /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB497781787AFE000E417EB /* MainStoryboard_iPad.storyboard */; };
-		7CB4977D1787AFE000E417EB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB4977C1787AFE000E417EB /* ViewController.m */; };
+		7CB4977D1787AFE000E417EB /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB4977C1787AFE000E417EB /* GameViewController.m */; };
 		7CB497851787AFE000E417EB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB497841787AFE000E417EB /* SenTestingKit.framework */; };
 		7CB497861787AFE000E417EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB4975D1787AFE000E417EB /* UIKit.framework */; };
 		7CB497871787AFE000E417EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB4975F1787AFE000E417EB /* Foundation.framework */; };
 		7CB4978F1787AFE000E417EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CB4978D1787AFE000E417EB /* InfoPlist.strings */; };
 		7CB497921787AFE000E417EB /* TicTacToeYoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB497911787AFE000E417EB /* TicTacToeYoTests.m */; };
-		7CB4979F1787BA3100E417EB /* TBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB4979E1787BA3100E417EB /* TBoard.m */; };
-		7CB497A21787C6B700E417EB /* TCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB497A11787C6B700E417EB /* TCell.m */; };
+		7CB4979F1787BA3100E417EB /* TBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB4979E1787BA3100E417EB /* TBoardView.m */; };
+		7CB497A21787C6B700E417EB /* TCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB497A11787C6B700E417EB /* TCellView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7C3AB3891787E02200E8FDF4 /* TGameArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGameArray.h; sourceTree = "<group>"; };
-		7C3AB38A1787E02200E8FDF4 /* TGameArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGameArray.m; sourceTree = "<group>"; };
-		7C43C470178A00DE00BFA802 /* img.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = img.bundle; sourceTree = "<group>"; };
+		7C225836178DD2D600BC4BDB /* TTouchAndPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTouchAndPanGestureRecognizer.h; sourceTree = "<group>"; };
+		7C225837178DD2D600BC4BDB /* TTouchAndPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTouchAndPanGestureRecognizer.m; sourceTree = "<group>"; };
+		7C3AB3891787E02200E8FDF4 /* TGameDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGameDataModel.h; sourceTree = "<group>"; };
+		7C3AB38A1787E02200E8FDF4 /* TGameDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGameDataModel.m; sourceTree = "<group>"; };
+		7CADF453178A20AA005D7DAD /* TLineOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLineOverlayView.h; sourceTree = "<group>"; };
+		7CADF454178A20AA005D7DAD /* TLineOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLineOverlayView.m; sourceTree = "<group>"; };
 		7CB4975A1787AFE000E417EB /* TicTacToeYo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToeYo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB4975D1787AFE000E417EB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7CB4975F1787AFE000E417EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -59,18 +63,18 @@
 		7CB497731787AFE000E417EB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7CB497761787AFE000E417EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		7CB497791787AFE000E417EB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		7CB4977B1787AFE000E417EB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7CB4977C1787AFE000E417EB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7CB4977B1787AFE000E417EB /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		7CB4977C1787AFE000E417EB /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		7CB497831787AFE000E417EB /* TicTacToeYoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeYoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB497841787AFE000E417EB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		7CB4978C1787AFE000E417EB /* TicTacToeYoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TicTacToeYoTests-Info.plist"; sourceTree = "<group>"; };
 		7CB4978E1787AFE000E417EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7CB497901787AFE000E417EB /* TicTacToeYoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicTacToeYoTests.h; sourceTree = "<group>"; };
 		7CB497911787AFE000E417EB /* TicTacToeYoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicTacToeYoTests.m; sourceTree = "<group>"; };
-		7CB4979D1787BA3100E417EB /* TBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBoard.h; sourceTree = "<group>"; };
-		7CB4979E1787BA3100E417EB /* TBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBoard.m; sourceTree = "<group>"; };
-		7CB497A01787C6B700E417EB /* TCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCell.h; sourceTree = "<group>"; };
-		7CB497A11787C6B700E417EB /* TCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCell.m; sourceTree = "<group>"; };
+		7CB4979D1787BA3100E417EB /* TBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBoardView.h; sourceTree = "<group>"; };
+		7CB4979E1787BA3100E417EB /* TBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBoardView.m; sourceTree = "<group>"; };
+		7CB497A01787C6B700E417EB /* TCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCellView.h; sourceTree = "<group>"; };
+		7CB497A11787C6B700E417EB /* TCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCellView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,20 +134,14 @@
 		7CB497631787AFE000E417EB /* TicTacToeYo */ = {
 			isa = PBXGroup;
 			children = (
-				7C43C470178A00DE00BFA802 /* img.bundle */,
 				7CB4976C1787AFE000E417EB /* AppDelegate.h */,
 				7CB4976D1787AFE000E417EB /* AppDelegate.m */,
 				7CB497751787AFE000E417EB /* MainStoryboard_iPhone.storyboard */,
 				7CB497781787AFE000E417EB /* MainStoryboard_iPad.storyboard */,
-				7CB4977B1787AFE000E417EB /* ViewController.h */,
-				7CB4977C1787AFE000E417EB /* ViewController.m */,
+				7CB4977B1787AFE000E417EB /* GameViewController.h */,
+				7CB4977C1787AFE000E417EB /* GameViewController.m */,
+				7CE6DF20178DE74D0059559C /* Classes */,
 				7CB497641787AFE000E417EB /* Supporting Files */,
-				7CB4979D1787BA3100E417EB /* TBoard.h */,
-				7CB4979E1787BA3100E417EB /* TBoard.m */,
-				7C3AB3891787E02200E8FDF4 /* TGameArray.h */,
-				7C3AB38A1787E02200E8FDF4 /* TGameArray.m */,
-				7CB497A01787C6B700E417EB /* TCell.h */,
-				7CB497A11787C6B700E417EB /* TCell.m */,
 			);
 			path = TicTacToeYo;
 			sourceTree = "<group>";
@@ -179,6 +177,23 @@
 				7CB4978D1787AFE000E417EB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7CE6DF20178DE74D0059559C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7CADF453178A20AA005D7DAD /* TLineOverlayView.h */,
+				7CADF454178A20AA005D7DAD /* TLineOverlayView.m */,
+				7C3AB3891787E02200E8FDF4 /* TGameDataModel.h */,
+				7C3AB38A1787E02200E8FDF4 /* TGameDataModel.m */,
+				7CB4979D1787BA3100E417EB /* TBoardView.h */,
+				7CB4979E1787BA3100E417EB /* TBoardView.m */,
+				7CB497A01787C6B700E417EB /* TCellView.h */,
+				7CB497A11787C6B700E417EB /* TCellView.m */,
+				7C225836178DD2D600BC4BDB /* TTouchAndPanGestureRecognizer.h */,
+				7C225837178DD2D600BC4BDB /* TTouchAndPanGestureRecognizer.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +273,6 @@
 				7CB497741787AFE000E417EB /* Default-568h@2x.png in Resources */,
 				7CB497771787AFE000E417EB /* MainStoryboard_iPhone.storyboard in Resources */,
 				7CB4977A1787AFE000E417EB /* MainStoryboard_iPad.storyboard in Resources */,
-				7C43C471178A00DE00BFA802 /* img.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,10 +309,12 @@
 			files = (
 				7CB4976A1787AFE000E417EB /* main.m in Sources */,
 				7CB4976E1787AFE000E417EB /* AppDelegate.m in Sources */,
-				7CB4977D1787AFE000E417EB /* ViewController.m in Sources */,
-				7CB4979F1787BA3100E417EB /* TBoard.m in Sources */,
-				7CB497A21787C6B700E417EB /* TCell.m in Sources */,
-				7C3AB38B1787E02200E8FDF4 /* TGameArray.m in Sources */,
+				7CB4977D1787AFE000E417EB /* GameViewController.m in Sources */,
+				7CB4979F1787BA3100E417EB /* TBoardView.m in Sources */,
+				7CB497A21787C6B700E417EB /* TCellView.m in Sources */,
+				7C3AB38B1787E02200E8FDF4 /* TGameDataModel.m in Sources */,
+				7CADF455178A20AA005D7DAD /* TLineOverlayView.m in Sources */,
+				7C225838178DD2D600BC4BDB /* TTouchAndPanGestureRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
