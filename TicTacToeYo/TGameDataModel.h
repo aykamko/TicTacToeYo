@@ -26,6 +26,7 @@
 @property (nonatomic, readonly) NSInteger currentPlayer;
 @property (nonatomic, weak) id <TGameDataModelDelegate> delegate;
 
+- (instancetype)initWithNumberOfRows:(int)rows columns:(int)columns;
 - (BOOL)checkIfSymbolPlayedAtRow:(NSInteger)row column:(NSInteger)column;
 - (void)playSymbol:(NSInteger)symbol atRow:(NSInteger)row column:(NSInteger)column;
 

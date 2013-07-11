@@ -24,6 +24,7 @@
 
 @property (nonatomic, strong) id <TBoardViewDelegate> delegate;
 
+- (id)initWithFrame:(CGRect)frame andWithNumberOfRows:(NSInteger)rows columns:(NSInteger)columns;
 - (void)drawLineFromRow0:(NSInteger)row0 andColumn0:(NSInteger)column0 toRow1:(NSInteger)row1 andColumn1:(NSInteger)column1;
 - (void)displayCellSymbol:(NSString *)symbol atRow:(NSInteger)row column:(NSInteger)column;
 - (void)reset;

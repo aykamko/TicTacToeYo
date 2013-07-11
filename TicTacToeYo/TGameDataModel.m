@@ -18,6 +18,8 @@ typedef NS_ENUM(NSUInteger, GamePlayer) {
 
 @interface TGameDataModel ()
 
+@property int rowCount;
+@property int columnCount;
 @property (nonatomic) BOOL endOfGame;
 @property NSMutableArray *dataArray;
 
@@ -29,16 +31,25 @@ typedef NS_ENUM(NSUInteger, GamePlayer) {
 
 - (instancetype)init
 {
+    self = [self initWithNumberOfRows:3 columns:3];
+    return self;
+}
+
+- (instancetype)initWithNumberOfRows:(int)rows columns:(int)columns
+{
     self = [super init];
     if (self != nil) {
-        
         // Initializing empty array
+        _rowCount = rows;
+        _columnCount = columns;
         _dataArray = [[NSMutableArray alloc] init];
-        for (int i = 0; i < 3; i++) {
-            [_dataArray addObject:[[NSMutableArray alloc]
-                                   initWithObjects:@0, @0, @0, nil]];
+        for (int i = 0; i < rows; i++) {
+            NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+            for (int j = 0; j < columns; j++) {
+                [tempArray addObject:@0];
+            }
+            [_dataArray addObject:tempArray];
         }
-    
         [self setEndOfGame:NO];
         _currentPlayer = GamePlayer1;
     }
@@ -63,11 +74,17 @@ typedef NS_ENUM(NSUInteger, GamePlayer) {
 
 - (BOOL)checkIfSymbolPlayedAtRow:(NSInteger)row column:(NSInteger)column
 {
-    if ((row > -1) && (row < 3) && (column > -1) && (row < 3)) {
+    if ([self validityOfRow:row column:column] == YES) {
         return (![_dataArray[row][column] isEqual:@0]);
     } else {
         return YES;
     }
+}
+
+- (BOOL)validityOfRow:(int)row column:(int)column
+{
+    return ((row >= 0) && (row <= _rowCount) &&
+            (column >= 0) && (column <= _columnCount));
 }
 
 - (void)playSymbol:(NSInteger)symbol atRow:(NSInteger)row column:(NSInteger)column
@@ -79,14 +96,14 @@ typedef NS_ENUM(NSUInteger, GamePlayer) {
     
     [[[self dataArray] objectAtIndex:row] replaceObjectAtIndex:column withObject:@(symbol)];
     
-    for (int i = 0; i < 3; i++) {
+    // Checking rows and columns for win
+    for (int i = 0; i < _rowCount; i++) {
+        
+        // Rows
         NSMutableSet *rowSet = [[NSMutableSet alloc] init];
-        
-        // Checking row for win
-        [rowSet addObject:_dataArray[i][0]];
-        [rowSet addObject:_dataArray[i][1]];
-        [rowSet addObject:_dataArray[i][2]];
-        
+        for (int column = 0; column < _columnCount; column++) {
+            [rowSet addObject:_dataArray[i][column]];
+        }
         if ([rowSet count] == 1 && ![rowSet containsObject:@0]) {
             // Win
             NSString *winnerString = [NSString
@@ -98,18 +115,18 @@ typedef NS_ENUM(NSUInteger, GamePlayer) {
             [self.delegate drawLineFromRow0:i
                                  andColumn0:0
                                      toRow1:i
-                                 andColumn1:2];
+                                 andColumn1:_columnCount - 1];
             [self setEndOfGame:YES];
             return;
         }
-        
+    }
+    
+    for (int i = 0; i < _columnCount; i++) {
+        // Columns
         NSMutableSet *colSet = [[NSMutableSet alloc] init];
-        
-        // Checking column for win
-        [colSet addObject:_dataArray[0][i]];
-        [colSet addObject:_dataArray[1][i]];
-        [colSet addObject:_dataArray[2][i]];
-        
+        for (int row = 0; row < _rowCount; row++) {
+            [colSet addObject:_dataArray[row][i]];
+        }
         if ([colSet count] == 1 && ![colSet containsObject:@0]) {
             NSString *winnerString = [NSString
                                       stringWithFormat:@"Player %@ Won!",
@@ -119,50 +136,94 @@ typedef NS_ENUM(NSUInteger, GamePlayer) {
                           withColorOrNil:[self.delegate currentPlayerColor]];
             [self.delegate drawLineFromRow0:0
                                  andColumn0:i
-                                     toRow1:2
+                                     toRow1:_rowCount - 1
                                  andColumn1:i];
             [self setEndOfGame:YES];
             return;
         }
     }
     
-    // Checking two diagonals for win
-    NSMutableSet *diagSet = [[NSMutableSet alloc] init];
-    [diagSet addObject:_dataArray[0][0]];
-    [diagSet addObject:_dataArray[1][1]];
-    [diagSet addObject:_dataArray[2][2]];
-    if ([diagSet count] == 1 && ![diagSet containsObject:@0]) {
-        NSString *winnerString = [NSString
-                                  stringWithFormat:@"Player %@ Won!",
-                                  [self.delegate currentPlayerString]];
-                                  
-        [self.delegate displayString:winnerString
-                      withColorOrNil:[self.delegate currentPlayerColor]];
-        [self.delegate drawLineFromRow0:0
-                             andColumn0:0
-                                 toRow1:2
-                             andColumn1:2];
-        [self setEndOfGame:YES];
-        return; //Win
+    
+    for (int i = 0; i <= abs(_rowCount - _columnCount); i++) {
+        NSMutableSet *backSlashSet = [[NSMutableSet alloc] init];
+        if (_columnCount >= _rowCount) {
+            for (int j = 0; j < _rowCount; j++) {
+                [backSlashSet addObject:_dataArray[j][i + j]];
+            }
+            if ([backSlashSet count] == 1 && ![backSlashSet containsObject:@0]) {
+                NSString *winnerString = [NSString
+                                          stringWithFormat:@"Player %@ Won!",
+                                          [self.delegate currentPlayerString]];
+                                          
+                [self.delegate displayString:winnerString
+                              withColorOrNil:[self.delegate currentPlayerColor]];
+                [self.delegate drawLineFromRow0:0
+                                     andColumn0:i
+                                         toRow1:_rowCount - 1
+                                     andColumn1:_rowCount - 1 + i];
+                [self setEndOfGame:YES];
+                return; //Win
+            }
+        } else {
+            for (int j = 0; j < _columnCount; j++) {
+                [backSlashSet addObject:_dataArray[i + j][j]];
+            }
+            if ([backSlashSet count] == 1 && ![backSlashSet containsObject:@0]) {
+                NSString *winnerString = [NSString
+                                          stringWithFormat:@"Player %@ Won!",
+                                          [self.delegate currentPlayerString]];
+                                          
+                [self.delegate displayString:winnerString
+                              withColorOrNil:[self.delegate currentPlayerColor]];
+                [self.delegate drawLineFromRow0:i
+                                     andColumn0:0
+                                         toRow1:_columnCount - 1 + i
+                                     andColumn1:_columnCount - 1];
+                [self setEndOfGame:YES];
+                return; //Win
+            }
+        }
     }
     
-    [diagSet removeAllObjects];
-    [diagSet addObject:_dataArray[0][2]];
-    [diagSet addObject:_dataArray[1][1]];
-    [diagSet addObject:_dataArray[2][0]];
-    if ([diagSet count] == 1 && ![diagSet containsObject:@0]) {
-        NSString *winnerString = [NSString
-                                  stringWithFormat:@"Player %@ Won!",
-                                  [self.delegate currentPlayerString]];
-                                  
-        [self.delegate displayString:winnerString
-                      withColorOrNil:[self.delegate currentPlayerColor]];
-        [self.delegate drawLineFromRow0:0
-                             andColumn0:2
-                                 toRow1:2
-                             andColumn1:0];
-        [self setEndOfGame:YES];
-        return; //Win
+    for (int i = 0; i <= abs(_rowCount - _columnCount); i++) {
+        NSMutableSet *forwardSlashSet = [[NSMutableSet alloc] init];
+        if (_columnCount >= _rowCount) {
+            for (int j = _rowCount - 1; j >= 0; j--) {
+                [forwardSlashSet addObject:_dataArray[j][_rowCount - 1 - j + i]];
+            }
+            if ([forwardSlashSet count] == 1 && ![forwardSlashSet containsObject:@0]) {
+                NSString *winnerString = [NSString
+                                          stringWithFormat:@"Player %@ Won!",
+                                          [self.delegate currentPlayerString]];
+                                          
+                [self.delegate displayString:winnerString
+                              withColorOrNil:[self.delegate currentPlayerColor]];
+                [self.delegate drawLineFromRow0:0
+                                     andColumn0:_rowCount - 1 + i
+                                         toRow1:_rowCount - 1
+                                     andColumn1:i];
+                [self setEndOfGame:YES];
+                return; //Win
+            }
+        } else {
+            for (int j = _columnCount - 1; j >= 0; j--) {
+                [forwardSlashSet addObject:_dataArray[_columnCount - 1 - j + i][j]];
+            }
+            if ([forwardSlashSet count] == 1 && ![forwardSlashSet containsObject:@0]) {
+                NSString *winnerString = [NSString
+                                          stringWithFormat:@"Player %@ Won!",
+                                          [self.delegate currentPlayerString]];
+                                          
+                [self.delegate displayString:winnerString
+                              withColorOrNil:[self.delegate currentPlayerColor]];
+                [self.delegate drawLineFromRow0:i
+                                     andColumn0:_columnCount - 1
+                                         toRow1:_columnCount - 1 + i
+                                     andColumn1:0];
+                [self setEndOfGame:YES];
+                return; //Win
+            }
+        }
     }
     
     BOOL catsGame = YES; // YES by default, until check

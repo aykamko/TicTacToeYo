@@ -18,6 +18,8 @@
     int _currentCellColumn;
 }
 
+@property int rowCount;
+@property int columnCount;
 @property NSMutableArray *cellArray;
 
 - (void)currentlyTouchedCellIsAtRow:(int)row andColumn:(int)column;
@@ -28,19 +30,27 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
+    self = [self initWithFrame:frame andWithNumberOfRows:3 columns:3];
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame andWithNumberOfRows:(NSInteger)rows columns:(NSInteger)columns
+{
     self = [super initWithFrame:frame];
     if (self) {
         [self setBackgroundColor:[UIColor grayColor]];
         
         // Child cell stuff
+        _rowCount = rows;
+        _columnCount = columns;
         _cellArray = [[NSMutableArray alloc] init];
-        for (int j = 0; j < 3; j++) {
+        for (int j = 0; j < rows; j++) {
             NSMutableArray *cellSubArray = [[NSMutableArray alloc] init];
-            for (int i = 0; i < 3; i++) {
-                CGRect cellRect = CGRectMake((frame.size.width - 3)/3 * i + 3,
-                                             (frame.size.height - 3)/3 * j + 3,
-                                             (frame.size.width - 3)/3 - 3,
-                                             (frame.size.width - 3)/3 - 3);
+            for (int i = 0; i < columns; i++) {
+                CGRect cellRect = CGRectMake((frame.size.width - 3)/columns * i + 3,
+                                             (frame.size.height - 3)/rows * j + 3,
+                                             (frame.size.width - 3)/columns - 3,
+                                             (frame.size.height - 3)/rows - 3);
                 TCellView *cell = [[TCellView alloc] initWithFrame: cellRect];
                 [cellSubArray addObject:cell];
                 [self addSubview:cell];
@@ -80,8 +90,8 @@
             [self setSymbol:symbol atCellContainingPoint:touchPoint];
         }
     } else if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
-        if ([self.delegate checkIfSymbolPlayedAtRow:_currentCellRow
-                                             column:_currentCellColumn] == NO) {
+        if ([self checkIfAnyCellContainsPoint:touchPoint] &&
+            ([self.delegate checkIfSymbolPlayedAtRow:_currentCellRow column:_currentCellColumn] == NO)) {
             [self.delegate playSymbol:[self.delegate currentPlayerString]
                                 atRow:_currentCellRow
                                column:_currentCellColumn];
@@ -92,11 +102,25 @@
     }
 }
 
+- (BOOL)checkIfAnyCellContainsPoint:(CGPoint)point
+{
+    for (int row = 0; row < _rowCount; row++) {
+        for (int column = 0; column < _columnCount; column++) {
+            TCellView *cell = [self cellArray][row][column];
+            CGRect cellFrame = cell.frame;
+            if (CGRectContainsPoint(cellFrame, point)) {
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
+
 - (void)setSymbol:(NSString *)symbol atCellContainingPoint:(CGPoint)point
 {
     if (!(CGRectContainsPoint(_currentCellFrame, point))) {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+        for (int i = 0; i < _rowCount; i++) {
+            for (int j = 0; j < _columnCount; j++) {
                 TCellView *cell = [self cellArray][i][j];
                 CGRect cellFrame = cell.frame;
                 if (CGRectContainsPoint(cellFrame, point)) {

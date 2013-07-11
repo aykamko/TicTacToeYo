@@ -23,6 +23,8 @@ typedef NS_ENUM(NSUInteger, GamePlayer) {
 @property (strong, nonatomic) TGameDataModel *gameBoard;
 @property (strong, nonatomic) TBoardView *boardView;
 
+@property int rows;
+@property int columns;
 @property BOOL endOfGame;
 
 @end
@@ -33,9 +35,15 @@ typedef NS_ENUM(NSUInteger, GamePlayer) {
 {
     [super viewDidLoad];
     
-    TGameDataModel *gameB = [[TGameDataModel alloc] init];
+    _rows = 3;
+    _columns = 3;
+    TGameDataModel *gameB = [[TGameDataModel alloc]
+                             initWithNumberOfRows:_rows
+                             columns:_columns];
     TBoardView *boardV = [[TBoardView alloc]
-                          initWithFrame:CGRectMake(0, 0, 275, 275)];
+                          initWithFrame:CGRectMake(0, 0, 275, 275)
+                          andWithNumberOfRows:_rows
+                          columns:_columns];
     CGPoint boardViewCenter;
     boardViewCenter.x = self.view.center.x;
     boardViewCenter.y = self.view.center.y - 30;
